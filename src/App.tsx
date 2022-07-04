@@ -1,4 +1,4 @@
-import { Routes } from "./assets/routes";
+import { Routes } from "./routes";
 
 export const App = () => (
     <Routes />
