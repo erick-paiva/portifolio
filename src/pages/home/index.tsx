@@ -13,7 +13,13 @@ const Home = ({}: HomeProps) => {
     setOffY(window.scrollY);
   };
   const scrollYEffect = {
-    transform: `translateY(${(offY * 0.3) * -1}px)`,
+    transform: `translateY(${offY * 0.3 * -1}px)`,
+    transition: "0.2s ease-in-out",
+  };
+
+  const scrollYEffect05 = {
+    transform: `translateY(${offY * 0.4 * -1}px)`,
+    transition: "0.1s ease-in-out",
   };
 
   useEffect(() => {
@@ -34,12 +40,7 @@ const Home = ({}: HomeProps) => {
       justifyContent="flex-start"
     >
       <Header />
-      <Box
-        paddingX="5%"
-        paddingY="50px"
-        h="100%"
-        w="100%"
-      >
+      <Box paddingX="5%" paddingY="50px" h="100%" w="100%">
         <canvas
           id="backgrounEffect"
           style={{
@@ -55,7 +56,7 @@ const Home = ({}: HomeProps) => {
           <SessionAboutMe />
         </Box>
 
-        <Box css={scrollYEffect}>
+        <Box css={scrollYEffect05}>
           <MyProjects />
         </Box>
       </Box>

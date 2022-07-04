@@ -1,4 +1,4 @@
-import { Box, Center, Image, Text, Img, keyframes } from "@chakra-ui/react";
+import { Box, Text, Img } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 interface SessionAboutMeProps {}
@@ -65,7 +65,7 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
           alt="erick"
         />
       </Box>
-      <Text textAlign="justify" w="100%">
+      <Text textAlign="justify" w="100%" minH="200px">
         {textExibition}
       </Text>
     </Box>
