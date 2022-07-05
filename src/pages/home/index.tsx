@@ -79,7 +79,7 @@ const Home = ({}: HomeProps) => {
           <SessionAboutMe />
         </Box>
 
-        <Box css={scrollYEffect05} mb="250px" w="100%">
+        <Box css={scrollYEffect05} w="100%">
           <MyProjects />
         </Box>
       </Box>
