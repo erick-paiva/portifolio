@@ -34,6 +34,7 @@ const Header = ({ callback }: HeaderProps) => {
       fontSize="30px"
       borderBottom="2px solid blue"
       bg="#00000035"
+      id="header"
     >
       <Heading
         animation={`${typewriter} 800ms steps(15) normal, ${blink} 800ms infinite normal`}
