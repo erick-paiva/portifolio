@@ -1,5 +1,6 @@
 import { Box, Center, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import Footer from "../../components/footer";
 import Header from "../../components/header";
 import MyProjects from "../../components/myProjects";
 import SessionAboutMe from "../../components/sessionAboutMe";
@@ -13,12 +14,12 @@ const Home = ({}: HomeProps) => {
     setOffY(window.scrollY);
   };
   const scrollYEffect = {
-    transform: `translateY(${offY * 0.3 * -1}px)`,
+    transform: `translateY(${offY * 0.1}px)`,
     transition: "0.2s ease-in-out",
   };
 
   const scrollYEffect05 = {
-    transform: `translateY(${offY * 0.4 * -1}px)`,
+    transform: `translateY(${offY * 0.2}px)`,
     transition: "0.1s ease-in-out",
   };
 
@@ -44,7 +45,7 @@ const Home = ({}: HomeProps) => {
         <canvas
           id="backgrounEffect"
           style={{
-            position: "absolute",
+            position: "fixed",
             top: "0",
             left: "0",
             zIndex: "-1",
@@ -56,10 +57,11 @@ const Home = ({}: HomeProps) => {
           <SessionAboutMe />
         </Box>
 
-        <Box css={scrollYEffect05}>
+        <Box css={scrollYEffect05} mb="250px" w="100%">
           <MyProjects />
         </Box>
       </Box>
+      <Footer />
     </Center>
   );
 };
