@@ -1,4 +1,4 @@
-import { Box, Center, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
@@ -9,10 +9,22 @@ import { effect } from "./backgroundEffect";
 interface HomeProps {}
 
 const Home = ({}: HomeProps) => {
+  const [scroll, setScroll] = useState(false);
   const [offY, setOffY] = useState(0);
   const handleScroll = () => {
     setOffY(window.scrollY);
+    if (window.scrollY > 0) {
+      setScroll(true);
+    }
   };
+  const animation = keyframes`
+  from{
+    filter: blur(10px);
+  }to{
+    filter: blur(0);
+  }
+`;
+
   const scrollYEffect = {
     transform: `translateY(${offY * 0.1}px)`,
     transition: "0.2s ease-in-out",
@@ -30,6 +42,14 @@ const Home = ({}: HomeProps) => {
   }, []);
 
   useEffect(() => {
+    setTimeout(() => {
+      if (window.scrollY === offY) {
+        setScroll(false);
+      }
+    }, 100);
+  }, [scroll, offY]);
+
+  useEffect(() => {
     effect();
   }, []);
 
@@ -39,6 +59,8 @@ const Home = ({}: HomeProps) => {
       minH="100vh"
       flexDirection="column"
       justifyContent="flex-start"
+      animation={`${animation} 0.3s ease-in`}
+      filter={`${scroll ? "blur(2px)" : ""}`}
     >
       <Header />
       <Box paddingX="5%" paddingY="50px" h="100%" w="100%">
