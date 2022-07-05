@@ -16,7 +16,7 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
   versions of Lorem Ipsum.`;
 
   const [textExibition, setTextExibition] = useState("");
-  const pause = lengthText % 50 === 0;
+  const pause = lengthText % 100 === 0;
 
   useEffect(() => {
     setTimeout(
@@ -28,9 +28,9 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
           setTextExibition(text);
         }
       },
-      pause ? 1000 : 100
+      pause ? 1000 : 20
     );
-  }, [text, lengthText]);
+  }, [text, lengthText, pause, textExibition]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,7 +45,11 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
   }, [lengthText, pause, textExibition]);
 
   return (
-    <Box color="white" w="100%" id="aboutMe">
+    <Box
+      color="white"
+      w="100%"
+      id="aboutMe"
+    >
       <Box
         position="relative"
         margin="0 10px 10px 0"
