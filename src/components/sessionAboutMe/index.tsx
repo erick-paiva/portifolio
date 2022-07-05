@@ -45,7 +45,7 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
   }, [lengthText, pause, textExibition]);
 
   return (
-    <Box color="white" w="100%">
+    <Box color="white" w="100%" id="AboutMe">
       <Box
         position="relative"
         margin="0 10px 10px 0"
