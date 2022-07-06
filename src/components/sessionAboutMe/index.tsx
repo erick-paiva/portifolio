@@ -23,6 +23,7 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
       () => {
         if (textExibition.length < text.length) {
           setTextExibition(text.slice(0, lengthText + 2) + " |");
+
           setLengthText(lengthText + 1);
         } else {
           setTextExibition(text);
@@ -30,26 +31,13 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
       },
       pause ? 1000 : 20
     );
+    if (pause) {
+      setTextExibition(textExibition.replace(" |", ""));
+    }
   }, [text, lengthText, pause, textExibition]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (pause) {
-        if (textExibition.includes(" |")) {
-          setTextExibition(textExibition.replace(" |", ""));
-        } else {
-          setTextExibition(textExibition + " |");
-        }
-      }
-    }, 500);
-  }, [lengthText, pause, textExibition]);
-
   return (
-    <Box
-      color="white"
-      w="100%"
-      id="aboutMe"
-    >
+    <Box color="white" w="100%" id="aboutMe">
       <Box
         position="relative"
         margin="0 10px 10px 0"
