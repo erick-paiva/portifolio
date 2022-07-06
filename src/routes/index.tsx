@@ -4,7 +4,7 @@ import Home from "../pages/home";
 export const Routes = () => {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" exact component={Home} />
     </Switch>
   );
 };
