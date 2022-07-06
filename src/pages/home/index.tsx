@@ -34,7 +34,7 @@ const Home = ({}: HomeProps) => {
 
   const scrollYEffect05 = {
     transform: `translateY(${offY * 0.2}px)`,
-    transition: "0.1s ease-in-out",
+    transition: "0.15s ease-in-out",
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Home = ({}: HomeProps) => {
       minH="100vh"
       flexDirection="column"
       justifyContent="flex-start"
-      animation={`${animation} 0.3s ease-in`}
+      animation={`${animation} 0.7s ease-in`}
     >
       <Sidebar
         open={openSideBar}
@@ -75,17 +75,17 @@ const Home = ({}: HomeProps) => {
         w="100%"
         onClick={() => setOpenSideBar(false)}
       >
-        <canvas
+        <Box
           id="backgrounEffect"
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: "-1",
-            minHeight: "100%",
-            width: "100%",
-          }}
-        ></canvas>
+          position="fixed"
+          top={0}
+          left={0}
+          zIndex="-1"
+          w="100%"
+          minH="100%"
+          as="canvas"
+
+        />
         <Box css={scrollYEffect} w="100%">
           <SessionAboutMe />
         </Box>
