@@ -3,8 +3,7 @@ import ImgFront from "../../assets/home/front-end.png";
 import ImgBack from "../../assets/home/back-end.png";
 import { myProjectsFront } from "./data";
 import CardMyProjects from "../cardMyProjects";
-interface MyProjectsProps {
-}
+interface MyProjectsProps {}
 
 const MyProjects = ({}: MyProjectsProps) => {
   return (
@@ -17,6 +16,7 @@ const MyProjects = ({}: MyProjectsProps) => {
       flexDirection="column"
       padding="10px 15px"
       mb="480px"
+      id="projects"
     >
       <Heading fontSize="25px">Some of my projects</Heading>
       <Center
@@ -27,6 +27,7 @@ const MyProjects = ({}: MyProjectsProps) => {
         borderRadius="5px"
         border="2px solid black"
         my="15px"
+        
       >
         <Text>Front-end</Text>
         <Img src={ImgFront} alt="Front-end" h="20px" w="20px" ml="10px" />
@@ -52,6 +53,7 @@ const MyProjects = ({}: MyProjectsProps) => {
         borderRadius="5px"
         border="2px solid black"
         my="15px"
+       
       >
         <Text>Back-end</Text>
         <Img src={ImgBack} alt="Back-end" h="20px" w="20px" ml="10px" />
