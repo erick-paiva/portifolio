@@ -1,14 +1,16 @@
-import { Box, Center, Heading, keyframes } from "@chakra-ui/react";
+import { Box, Center, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import MyProjects from "../../components/myProjects";
 import SessionAboutMe from "../../components/sessionAboutMe";
+import Sidebar from "../../components/sidebar";
 import { effect } from "./backgroundEffect";
 
 interface HomeProps {}
 
 const Home = ({}: HomeProps) => {
+  const [openSideBar, setOpenSideBar] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [offY, setOffY] = useState(0);
   const handleScroll = () => {
@@ -60,10 +62,19 @@ const Home = ({}: HomeProps) => {
       flexDirection="column"
       justifyContent="flex-start"
       animation={`${animation} 0.3s ease-in`}
-      filter={`${scroll ? "blur(2px)" : ""}`}
     >
-      <Header />
-      <Box paddingX="5%" paddingY="50px" h="100%" w="100%">
+      <Sidebar
+        open={openSideBar}
+        callback={() => setOpenSideBar(!openSideBar)}
+      />
+      <Header callback={() => setOpenSideBar(!openSideBar)} />
+      <Box
+        paddingX="5%"
+        paddingY="50px"
+        h="100%"
+        w="100%"
+        onClick={() => setOpenSideBar(false)}
+      >
         <canvas
           id="backgrounEffect"
           style={{
