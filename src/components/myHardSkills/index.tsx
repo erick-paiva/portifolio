@@ -67,7 +67,7 @@ const MyHardSkills = () => {
               >
                 {data.map(({ name, img }, index) => (
                   <Box mr="15px" my="5px" key={`${name} ${index}`}>
-                    <CardHardSkills name={name} img={img} />
+                    <CardHardSkills name={name} img={img} time={index + 1} />
                   </Box>
                 ))}
               </Flex>
@@ -109,7 +109,7 @@ const MyHardSkills = () => {
               >
                 {data.map(({ name, img }, index) => (
                   <Box mr="15px" my="5px" key={`${name} ${index}02`}>
-                    <CardHardSkills name={name} img={img} />
+                    <CardHardSkills name={name} img={img} time={index + 1} />
                   </Box>
                 ))}
               </Flex>
