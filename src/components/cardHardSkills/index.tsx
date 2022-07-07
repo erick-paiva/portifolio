@@ -10,7 +10,7 @@ interface CardMyProjectsProps {
 
 const CardHardSkills = ({ img, name, time }: CardMyProjectsProps) => {
   const ref = useRef() as any;
-  const inViewport = useIntersection(ref, "0px");
+  const inViewport = useIntersection(ref, "30px");
 
   const [inView, serInView] = useState(false);
 
