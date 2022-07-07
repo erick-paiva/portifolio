@@ -19,7 +19,7 @@ const Header = ({ callback }: HeaderProps) => {
       width: 0%;
     }
     to {
-      width: 58%;
+      width: 150px;
     }
   `;
 
@@ -29,7 +29,7 @@ const Header = ({ callback }: HeaderProps) => {
       w="100%"
       h="80px"
       color="white"
-      paddingX="20px"
+      paddingX="5%"
       justifyContent="space-between"
       fontSize="30px"
       borderBottom="2px solid blue"
