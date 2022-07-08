@@ -33,7 +33,17 @@ const MyProjects = ({}: MyProjectsProps) => {
       }}
       id="projects"
     >
-      <Heading fontSize="25px">Some of my projects</Heading>
+      <Heading
+        fontSize={{
+          xs: "25px",
+          lg: "30px",
+          xl: "35px",
+          "2xl": "40px",
+        }}
+        color="blue.400"
+      >
+        Some of my projects ⚙️​
+      </Heading>
       <Center
         px="10px"
         w="130px"
@@ -47,7 +57,16 @@ const MyProjects = ({}: MyProjectsProps) => {
         <Img src={ImgFront} alt="Front-end" h="20px" w="20px" ml="10px" />
       </Center>
 
-      <HStack flexWrap="wrap" justifyContent="space-between" spacing="10px">
+      <HStack
+        flexWrap="wrap"
+        justifyContent="space-between"
+        spacing={{
+          xs: "0",
+          lg: "15px",
+          xl: "18px",
+          "2xl": "20px",
+        }}
+      >
         {myProjectsFront.map(
           ({ name, repo, description, img, site }, index) => (
             <Box key={name + index}>
