@@ -1,19 +1,11 @@
-import { Box, Text, Img } from "@chakra-ui/react";
+import { Box, Text, Img, Heading, Center, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 interface SessionAboutMeProps {}
 
 const SessionAboutMe = ({}: SessionAboutMeProps) => {
   const [lengthText, setLengthText] = useState(0);
-  const text = `Is simply dummy text of the printing and typesetting industry. Lorem
-  Ipsum has been the industry's standard dummy text ever since the
-  1500s, when an unknown printer took a galley of type and scrambled it
-  to make a type specimen book. It has survived not only five centuries,
-  but also the leap into electronic typesetting, remaining essentially
-  unchanged. It was popularised in the 1960s with the release of
-  Letraset sheets containing Lorem Ipsum passages, and more recently
-  with desktop publishing software like Aldus PageMaker including
-  versions of Lorem Ipsum.`;
+  const text = `I am currently Full stack developer and front end developer at Loomi 🧑‍💻​`;
 
   const [textExibition, setTextExibition] = useState("");
   const pause = lengthText % 100 === 0;
@@ -36,31 +28,93 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
     }
   }, [text, lengthText, pause, textExibition]);
 
+  const animation = keyframes`
+    0%{
+      opacity: 0;
+      position: relative;
+      left: 60vw;
+    }
+    50%{
+      opacity: 0.5;
+      position: relative;
+      left: -15vw;
+    }
+    100%{
+      opacity: 1;
+      position: relative;
+      left: 0;
+    }
+  `;
+
   return (
-    <Box color="white" w="100%" id="aboutMe">
-      <Box
-        position="relative"
-        margin="0 10px 10px 0"
-        h="180px"
-        w="180px"
-        css={{
-          shapeOutside: "circle()",
-        }}
-        overflow="hidden"
-        float="left"
-        borderRadius="100%"
-      >
-        <Img
-          w="180px"
-          borderRadius="10px"
-          src="https://ca.slack-edge.com/TQZR39SET-U0279QYHPPS-3a14e2e110b0-512"
-          alt="erick"
-        />
+    <Center
+      color="white"
+      id="aboutMe"
+      w="100%"
+      animation={`${animation} 2s ease-in-out`}
+    >
+      <Box minW="50%">
+        <Box
+          position="relative"
+          margin="0 10px 10px 0"
+          h={{
+            xs: "100px",
+            lg: "150px",
+            xl: "180px",
+            "2xl": "200px",
+          }}
+          w={{
+            xs: "100px",
+            lg: "150px",
+            xl: "180px",
+            "2xl": "200px",
+          }}
+          css={{
+            shapeOutside: "circle()",
+          }}
+          overflow="hidden"
+          float="left"
+          borderRadius="100%"
+        >
+          <Img
+            w={{
+              xs: "100px",
+              lg: "150px",
+              xl: "180px",
+              "2xl": "200px",
+            }}
+            borderRadius="10px"
+            src="https://ca.slack-edge.com/TQZR39SET-U0279QYHPPS-3a14e2e110b0-512"
+            alt="erick"
+          />
+        </Box>
+        <Heading
+          fontSize={{
+            xs: "20px",
+            lg: "35px",
+            xl: "40px",
+            "2xl": "45px",
+          }}
+          fontWeight="bold"
+        >
+          Hi, my name is Erick! 👽​
+        </Heading>
+        <Text
+          textAlign="justify"
+          w="100%"
+          minH="100px"
+          fontSize={{
+            xs: "13px",
+            lg: "18px",
+            xl: "25px",
+            "2xl": "30px",
+          }}
+          fontWeight="300"
+        >
+          {textExibition}
+        </Text>
       </Box>
-      <Text textAlign="justify" w="100%" minH="200px">
-        {textExibition}
-      </Text>
-    </Box>
+    </Center>
   );
 };
 
