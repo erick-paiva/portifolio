@@ -1,6 +1,6 @@
 import { Center, Img, keyframes } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
-import { useIntersection } from "../../hooks/v";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface CardMyProjectsProps {
   img: string;
@@ -9,10 +9,10 @@ interface CardMyProjectsProps {
 }
 
 const CardHardSkills = ({ img, name, time }: CardMyProjectsProps) => {
-  const ref = useRef() as any;
-  const inViewport = useIntersection(ref, "30px");
-
-  const [inView, serInView] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
+  const [inViewPort, setInViewPort] = useState(inView);
 
   const animation = keyframes`
     0% {
@@ -31,14 +31,14 @@ const CardHardSkills = ({ img, name, time }: CardMyProjectsProps) => {
 
   const newTime = time > 4 ? 4 : time;
   useEffect(() => {
-    if (!inView && inViewport) serInView(true);
-  }, [inViewport, inView]);
+    if (inView && !inViewPort) setInViewPort(true);
+  }, [inViewPort, inView]);
 
   return (
     <Center
       padding={img ? "0" : "15px"}
-      {...(inView && { position: "relative" })}
-      animation={inView ? `${animation} ${newTime}s ease-in-out normal` : ""}
+      {...(inViewPort && { position: "relative" })}
+      animation={inViewPort ? `${animation} ${newTime}s ease-in-out normal` : ""}
       ref={ref}
     >
       <Img
