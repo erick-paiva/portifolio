@@ -34,11 +34,13 @@ const CardMyProjects = ({
       border="2px solid blue"
       borderRadius="10px"
       justifyContent="space-between"
+      mb="10px"
     >
       <Center
         w="100%"
         padding={img ? "0" : "15px"}
         borderBottom="2px solid blue"
+        position="relative"
       >
         <Box as="a" href={img !== ImgDefault ? site : link} target="_blank">
           <Img
@@ -64,6 +66,36 @@ const CardMyProjects = ({
               "2xl": "300px",
             }}
           />
+          <Center
+            bg="#0000007b"
+            w="100%"
+            h="100%"
+            position="absolute"
+            left="0"
+            top="0"
+            opacity="0"
+            _hover={{
+              opacity: 1,
+            }}
+            transitionDuration="0.5s"
+            textAlign="center"
+          >
+            <Text
+              color="white"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+              overflow="hidden"
+              w="90%"
+              fontSize={{
+                xs: "15px",
+                lg: "20px",
+                xl: "30px",
+                "2xl": "40px",
+              }}
+            >
+              {name}
+            </Text>
+          </Center>
         </Box>
       </Center>
 
@@ -103,16 +135,20 @@ const CardMyProjects = ({
         </Text>
         <Flex w="100%" px="15px" mb="10px">
           <Center
+            bg="gray.300"
             minW="50px"
             h="20px"
             borderRadius="5px"
             padding="5px 10px"
-            bg="white"
+            // bg="white"
             color="blue"
             fontSize="10px"
             as="a"
             href={link}
             target="_blank"
+            _hover={{
+              bg: "gray.200",
+            }}
           >
             Repository
           </Center>
