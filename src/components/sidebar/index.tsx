@@ -16,12 +16,16 @@ interface SidebarProps {
 const Sidebar = ({ open = true, callback }: SidebarProps) => {
   const history = useHistory();
 
+  const {
+    location: { pathname },
+  } = history;
+
   const endPoints = [
     {
       Icon: <RiHome7Fill />,
       name: "Home",
-      url: "header",
-      route: false,
+      url: pathname !== "/" ? "/" : "header",
+      route: pathname !== "/",
     },
     {
       Icon: <RiUser2Fill />,
