@@ -12,7 +12,8 @@ export const theme = extendTheme({
     },
   },
   fonts: {
-    body: "",
+    body: "Inconsolata",
+    heading: "Karla",
   },
   fontSizes: {
     xs: "0.75rem",
