@@ -1,5 +1,6 @@
 import { Box, Text, Img, Heading, Center, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import MyAvatar from "../../assets/home/my_avatar.png";
 
 interface SessionAboutMeProps {}
 
@@ -21,7 +22,7 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
           setTextExibition(text);
         }
       },
-      pause ? 1000 : 20
+      pause ? 1000 : 100
     );
     if (pause) {
       setTextExibition(textExibition.replace(" |", ""));
@@ -57,18 +58,6 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
         <Box
           position="relative"
           margin="0 10px 10px 0"
-          h={{
-            xs: "100px",
-            lg: "150px",
-            xl: "180px",
-            "2xl": "200px",
-          }}
-          w={{
-            xs: "100px",
-            lg: "150px",
-            xl: "180px",
-            "2xl": "200px",
-          }}
           css={{
             shapeOutside: "circle()",
           }}
@@ -78,13 +67,13 @@ const SessionAboutMe = ({}: SessionAboutMeProps) => {
         >
           <Img
             w={{
-              xs: "100px",
-              lg: "150px",
-              xl: "180px",
-              "2xl": "200px",
+              xs: "170px",
+              lg: "200px",
+              xl: "300px",
+              "2xl": "350px",
             }}
             borderRadius="10px"
-            src="https://ca.slack-edge.com/TQZR39SET-U0279QYHPPS-3a14e2e110b0-512"
+            src={MyAvatar}
             alt="erick"
           />
         </Box>
